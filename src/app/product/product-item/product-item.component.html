@@ -1,1 +1,13 @@
-<p>product-item works!</p>
+<div class="product-container" *ngFor="let product of products;index as i">
+    <div class="name">{{product.name}}</div>
+    <div class="image">{{product.image}}</div>
+    <div class="price"
+    [class]="product.sale ? 'sale':'regular'">{{product.price}}</div>
+    <button (click)="addToCart(i)">Add to cart</button>
+</div>
+<div class="cart" *ngFor="let item of cart;index as i">
+    <div class=name>{{item.product.name}}</div>
+    <button id="add" (click)="add(i)">+</button>
+    <div class=amount>{{item.amount}}</div>
+    <button id="minus" (click)="minus(i)">-</button>
+</div>

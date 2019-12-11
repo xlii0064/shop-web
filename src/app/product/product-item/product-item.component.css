@@ -1,0 +1,16 @@
+.product-container{
+    border:2px solid brown;
+    border-radius: 5px;
+    display: inline-block;
+    padding: 12px;
+}
+.cart .add,.cart .amount,.cart .minus{
+    display: inline-block;
+}
+.sale{
+    color: crimson;
+}
+
+.regular{
+    color:darkslategray;
+}
