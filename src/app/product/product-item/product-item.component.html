@@ -3,11 +3,13 @@
     <div class="image"><img src="{{product.image}}"></div>
     <div class="price"
     [class]="product.sale ? 'sale':'regular'">{{product.price}}</div>
-    <button (click)="addToCart(i)">Add to cart</button>
+    <button (click)="addToCart(i)" *ngIf="!product.inCart">Add to cart</button>
 </div>
-<div class="cart" *ngFor="let item of cart;index as i">
+<div class="cart">
+    <div class="cart-item" *ngFor="let item of cart;index as i">
     <div class=name>{{item.product.name}}</div>
     <button id="minus" (click)="minus(i)">-</button>
     <div class=amount>{{item.amount}}</div>
     <button id="add" (click)="add(i)">+</button>
+    </div>
 </div>
