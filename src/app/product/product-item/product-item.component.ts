@@ -26,7 +26,7 @@ export class ProductItemComponent implements OnInit {
   }
 
   minus(index:number){
-    this.cart[index].minus();
+    this.cart[index].amount==1 ? this.cart.splice(index,index+1):this.cart[index].minus();
   }
 
 

@@ -7,7 +7,7 @@
 </div>
 <div class="cart" *ngFor="let item of cart;index as i">
     <div class=name>{{item.product.name}}</div>
-    <button id="add" (click)="add(i)">+</button>
-    <div class=amount>{{item.amount}}</div>
     <button id="minus" (click)="minus(i)">-</button>
+    <div class=amount>{{item.amount}}</div>
+    <button id="add" (click)="add(i)">+</button>
 </div>
