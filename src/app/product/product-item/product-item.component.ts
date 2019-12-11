@@ -13,8 +13,9 @@ export class ProductItemComponent implements OnInit {
   constructor() { }
  
   ngOnInit() {
-    this.products.push(new Product("uniform1",100,"/assets/1.jpg"));
-    this.products.push(new Product("uniform2",101,"/assets/2.jpg"));
+    this.products.push(new Product("uniform1",100,"https://img.sankengriji.com/jkuniform/upload/jp/a6f4b8914609c5c2ffd29e5de49220e0.jpg"));
+    this.products.push(new Product("uniform2",101,"https://img.sankengriji.com/jkuniform/upload/jp/6e8e7022f75e0e248b8864b055d9c79a.jpg"));
+    this.products[1].changeStatus();
   }
   add(index:number){
     this.cart[index].add();
@@ -24,9 +25,21 @@ export class ProductItemComponent implements OnInit {
     this.products[index].changeCartStatus();
     this.cart.push(new Cart(this.products[index]));
   }
-
+  search(name:string):string{
+    for (var i in this.products){
+      if (this.products[i].name==name){
+        return i;
+      }
+    }
+    return "-1";
+  }
   minus(index:number){
-    this.cart[index].amount==1 ? this.cart.splice(index,index+1):this.cart[index].minus();
+    if(this.cart[index].amount==1){
+      var i=this.search(this.cart[index].product.name);
+      this.products[i].changeCartStatus();
+      this.cart.splice(index,index+1);
+    }
+    else{ this.cart[index].minus();}
   }
 
 
