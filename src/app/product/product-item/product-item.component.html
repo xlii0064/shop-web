@@ -5,6 +5,9 @@
     [class]="product.sale ? 'sale':'regular'">{{product.price}}</div>
     <button (click)="addToCart(i)" *ngIf="!product.inCart">Add to cart</button>
 </div>
+<select>
+    <option  *ngFor="let product of products;" value="{{product.name}}">{{product.name}}</option>
+</select>
 <div class="cart">
     <div class="cart-item" *ngFor="let item of cart;index as i">
     <div class=name>{{item.product.name}}</div>
